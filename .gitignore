@@ -1,0 +1,30 @@
+# Visual Studio and .NET-related files
+bin/
+obj/
+.vscode/
+*.user
+*.suo
+*.vs
+*.dll
+*.pdb
+*.log
+*.tmp
+*.cache
+
+# Configuration files that may contain secrets
+appsettings.json
+appsettings.Development.json
+secrets.json
+
+# Security-related files
+.env
+*.pfx
+*.cer
+*.key
+*.pem
+
+# JWT tokens or sensitive data
+*.jwt
+*.token
+jwt_private_key.txt
+jwt_public_key.txt
