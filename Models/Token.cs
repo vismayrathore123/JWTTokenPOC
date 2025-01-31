@@ -1,13 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
 
-namespace JWTTokenAuthenticationPOC.Models
+public class Token
 {
-    public class Token
-    {
-        [Key]
-        public int Id { get; set; }
-        public string UserId { get; set; }
-        public string JwtToken { get; set; }
-        public DateTime ExprityDate { get; set; }
-    }
+    public int Id { get; set; }
+    public string UserId { get; set; }
+    public string JwtToken { get; set; }
+    public DateTime ExpiryDate { get; set; }  
 }

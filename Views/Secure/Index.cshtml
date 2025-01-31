@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Secure Page";
+}
+
+<h2>Welcome to the Secure Page</h2>
+
+<div class="alert alert-success">
+    <p>You have accessed a protected page!</p>
+</div>
+
+<button class="btn btn-danger" onclick="logout()">Logout</button>
+
+<script>
+    function logout() {
+        localStorage.removeItem('token');
+        window.location.href = '/Auth/Login';
+    }
+</script>

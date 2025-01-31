@@ -17,7 +17,18 @@ public class JwtService
         _secretKey = config["JwtSettings:SecretKey"];
         _issuer = config["JwtSettings:Issuer"];
         _audience = config["JwtSettings:Audience"];
-        _expiryMinutes = int.Parse(config["JwtSettings:ExpiryMinutes"]);
+        _expiryMinutes = int.TryParse(config["JwtSettings:ExpiryMinutes"], out int minutes) ? minutes : 60;
+
+        // Debug: Print values to console
+        Console.WriteLine($"SecretKey: {_secretKey}");
+        Console.WriteLine($"Issuer: {_issuer}");
+        Console.WriteLine($"Audience: {_audience}");
+        Console.WriteLine($"ExpiryMinutes: {_expiryMinutes}");
+
+        if (string.IsNullOrEmpty(_secretKey) || string.IsNullOrEmpty(_issuer) || string.IsNullOrEmpty(_audience))
+        {
+            throw new ArgumentNullException("JwtSettings values cannot be null. Check appsettings.json!");
+        }
     }
 
     public string GenerateToken(string userId, string role)
